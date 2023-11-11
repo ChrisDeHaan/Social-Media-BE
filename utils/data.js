@@ -217,7 +217,7 @@ const emailTypes = [
 const hereBeThoughts = [
     'This is a thought',
     'This is also a thought',
-    'This is not a very well thoughout out thought',
+    'This is not a very well though out thought',
     'All womens are queens.',
     "If she breathes... she's a THOOOOOOT",
     "I'm just here so I won't get fined.",
@@ -227,7 +227,7 @@ const hereBeThoughts = [
     'End my suffering',
     'Imma go commit die now',
     'How does this work?',
-    'All your base belong to us'
+    'All your base are belong to us'
 ]
 
 const hereBeReactions = [
