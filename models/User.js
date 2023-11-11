@@ -30,11 +30,12 @@ const userSchema = new Schema(
     {
         toJSON: {
             virtuals: true
-        }
+        },
+        id: false
     }
 )
 
-userSchema.virtual('friendCount').get(() => this.friends.length)
+userSchema.virtual('friendCount').get(() => userSchema.obj.friends.length )
 
 const User = model('users', userSchema)
 
