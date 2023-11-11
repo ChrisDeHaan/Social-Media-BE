@@ -5,7 +5,8 @@
     "mongoose": "^8.0.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node utils/seed.js"
   },
   "name": "challenge-18-nosql-social-media-be",
   "description": "this is for challenge 18 assignment",
