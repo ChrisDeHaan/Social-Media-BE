@@ -35,7 +35,11 @@ connection.once('open', async () => {
         const reactions = []
         for (let i=0; i < Math.floor(Math.random() * 4 + 1); i++) {
             const rndmReaction = getRandomReaction()
-            reactions.push(rndmReaction)
+            const reactionObj = {
+                reactionBody: rndmReaction,
+                username: username
+            }
+            reactions.push(reactionObj)
         }
 
         const thoughtText = []
