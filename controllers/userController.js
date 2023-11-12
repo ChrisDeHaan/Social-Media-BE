@@ -1,15 +1,12 @@
 const { ObjectId } = require('mongoose').Types
 const { User, Thought } = require('../models')
 
-// /api/users
-
 module.exports = {
     async getUsers (req, res) {
         try {
             const users = await User.find()
             res.json(users)
         } catch (err) {
-            console.log(err)
             return res.status(500).json(err)
         }
     },
@@ -55,7 +52,7 @@ module.exports = {
             const user = await User.findOneAndDelete( { _id: req.params.userId } )
 
             if (!user) {
-                res.status(404).json({ message: 'No course with that ID' })
+                res.status(404).json({ message: 'No user with that ID' })
             }
 
             await User.deleteMany({ _id: { $in: User.thoughts} })
