@@ -78,7 +78,7 @@ module.exports = {
     },
     async removeReaction(req, res) {
         try {
-            const thought = Thought.findOneAndUpdate(
+            const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId},
                 { $pull: { reactions: { reactionId: req.params.reactionId }}},
                 {runValidators: true, new: true}
@@ -86,7 +86,7 @@ module.exports = {
             if (!thought) {
                 res.status(404).json({message: `This thought can't be unthunked`})
             } else {
-                res.json(thought.reactions)
+                res.json('You got a 200, but the reaction is not gone')
             }
         } catch (err) {
             res.status(500).json(err)
