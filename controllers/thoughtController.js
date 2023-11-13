@@ -86,7 +86,7 @@ module.exports = {
             if (!thought) {
                 res.status(404).json({message: `This thought can't be unthunked`})
             } else {
-                res.json('You got a 200, but the reaction is not gone')
+                res.json('Reaction removed.')
             }
         } catch (err) {
             res.status(500).json(err)
