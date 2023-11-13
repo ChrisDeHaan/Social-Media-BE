@@ -59,5 +59,37 @@ module.exports = {
         } catch (err) {
             res.status(500).json(err)
         }
+    },
+    async addReaction(req, res) {
+        try {
+            const thought = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId},
+                { $addToSet: { reactions: req.body}},
+                { runValidators: true, new: true}
+            )
+            if (!thought) {
+                res.status(404).json({message: `Unable to think your thunk.`})
+            } else {
+                res.json(thought)
+            }
+        } catch (err) {
+            res.status(500).json(err)
+        }
+    },
+    async removeReaction(req, res) {
+        try {
+            const thought = Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId},
+                { $pull: { reactions: { reactionId: req.params.reactionId }}},
+                {runValidators: true, new: true}
+            )
+            if (!thought) {
+                res.status(404).json({message: `This thought can't be unthunked`})
+            } else {
+                res.json(thought.reactions)
+            }
+        } catch (err) {
+            res.status(500).json(err)
+        }
     }
 }
